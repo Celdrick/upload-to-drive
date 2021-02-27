@@ -1,4 +1,4 @@
-name: Generate and publish documentation
+name: test
 on:
   push:
     branches: [master]
