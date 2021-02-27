@@ -1,29 +1,18 @@
-name: test
+name: Store readme in Drive
 on:
-  push:
-    branches: [master]
+  push: { branches: [master] }
 jobs:
-  documentation:
-    name: Generate and publish documentation
+  buildAndTestForSomePlatforms:
+    name: Upload readme to drive
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      # Generate docs
-      - name: Generate documentation
-        uses: andstor/jsdoc-action@v1
+      # Upload to Drive
+      - name: Upload README.md to Google Drive
+        uses: Jodebu/upload-to-drive@master
         with:
-          source_dir: ./
-          output_dir: ./docs
-      
-      # Publish docs
-      - name: Publish documentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.GOOGLE }}
-          publish_dir: ./
+          target: README.md
+          credentials: secrets.GOOGLE
+          folder: 1L80QW6qH1qpE2tnQU4PcKSdVyjbbAtfk
