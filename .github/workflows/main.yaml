@@ -1,4 +1,4 @@
-name: Store readme in Drive1
+name: Store readme in Drive
 on:
   push: { branches: [master] }
 jobs:
