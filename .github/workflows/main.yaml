@@ -15,4 +15,4 @@ jobs:
         with:
           target: README.md
           credentials: ${{ secrets.GOOGLE }}
-          folder: 1L80QW6qH1qpE2tnQU4PcKSdVyjbbAtfk
+          folder: ${{ secrets.FOLDER }}
